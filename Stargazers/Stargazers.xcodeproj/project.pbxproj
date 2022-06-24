@@ -102,7 +102,6 @@
 		7D704C5228632C13001E6DB0 /* Stargazers */ = {
 			isa = PBXGroup;
 			children = (
-				7D704C8028632E29001E6DB0 /* Data */,
 				7D704C7D28632CA2001E6DB0 /* NetworkService */,
 				7D704C5328632C13001E6DB0 /* StargazersApp.swift */,
 				7D704C5528632C13001E6DB0 /* ContentView.swift */,
@@ -146,13 +145,6 @@
 				7D704C8328648675001E6DB0 /* Constants+Enums.swift */,
 			);
 			path = NetworkService;
-			sourceTree = "<group>";
-		};
-		7D704C8028632E29001E6DB0 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
