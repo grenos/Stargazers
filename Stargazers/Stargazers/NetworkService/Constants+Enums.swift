@@ -26,16 +26,14 @@ enum NetData {
 enum NetErrors: Error {
 	case requestFailed(description: String)
 	case invalidUrl
-	case responseUnsuccessful(description: String)
-	case jsonConversionFailure(description: String)
+	case jsonConversionFailure
 	
 	
 	var returnValue: String {
 		switch self {
-			case let .requestFailed(description): return "Request Failed error -> \(description)"
-			case .invalidUrl: return "The URL is invalid"
-			case let .responseUnsuccessful(description): return "Response Unsuccessful error -> \(description)"
-			case let .jsonConversionFailure(description): return "JSON Conversion Failure -> \(description)"
+			case let .requestFailed(description): return "Woops! Something went wrong! \(description)"
+			case .invalidUrl: return "Woops! Something went wrong. Try again!"
+			case .jsonConversionFailure: return "Woops! Something went wrong. Try again!"
 		}
 	}
 }

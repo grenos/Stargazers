@@ -1,5 +1,5 @@
 //
-//  Model.swift
+//  StarGazerDTO.swift
 //  Stargazers
 //
 //  Created by Vasileios  Gkreen on 23/06/22.
@@ -9,7 +9,7 @@ import Foundation
 
 
 
-struct StarGazer: Identifiable, Codable {
+struct StarGazerDTO: Identifiable, Codable {
 	var login: String
 	var id: Int
 	var NodeId: String

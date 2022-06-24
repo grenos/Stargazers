@@ -33,16 +33,15 @@ class NetworkService: Fetchable {
 		request.allHTTPHeaderFields = Headers
 		
 		let (data, response) = try await URLSession.shared.data(for: request)
-				
 		guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-			throw NetErrors.requestFailed(description: "invalid response")
+			throw NetErrors.requestFailed(description: "We couldn't find any Stargazers. Try again!")
 		}
 		
 		do {
 			let decoder = JSONDecoder()
 			return try decoder.decode(type, from: data)
 		} catch {
-			throw NetErrors.jsonConversionFailure(description: error.localizedDescription)
+			throw NetErrors.jsonConversionFailure
 		}
 	}
 }

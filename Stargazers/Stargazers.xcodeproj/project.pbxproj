@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7D704C5428632C13001E6DB0 /* StargazersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D704C5328632C13001E6DB0 /* StargazersApp.swift */; };
-		7D704C5628632C13001E6DB0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D704C5528632C13001E6DB0 /* ContentView.swift */; };
+		7D704C5628632C13001E6DB0 /* GazersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D704C5528632C13001E6DB0 /* GazersListView.swift */; };
 		7D704C5828632C16001E6DB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D704C5728632C16001E6DB0 /* Assets.xcassets */; };
 		7D704C5B28632C16001E6DB0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D704C5A28632C16001E6DB0 /* Preview Assets.xcassets */; };
 		7D704C6528632C16001E6DB0 /* StargazersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D704C6428632C16001E6DB0 /* StargazersTests.swift */; };
@@ -16,8 +16,14 @@
 		7D704C7128632C16001E6DB0 /* StargazersUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D704C7028632C16001E6DB0 /* StargazersUITestsLaunchTests.swift */; };
 		7D704C7F28632CBD001E6DB0 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D704C7E28632CBD001E6DB0 /* NetworkService.swift */; };
 		7D704C8428648675001E6DB0 /* Constants+Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D704C8328648675001E6DB0 /* Constants+Enums.swift */; };
-		7D704C86286486A8001E6DB0 /* ContentView_ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D704C85286486A8001E6DB0 /* ContentView_ViewModel.swift */; };
-		7D704C8828648821001E6DB0 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D704C8728648821001E6DB0 /* Model.swift */; };
+		7D704C86286486A8001E6DB0 /* GazersListView_ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D704C85286486A8001E6DB0 /* GazersListView_ViewModel.swift */; };
+		7D704C8828648821001E6DB0 /* StarGazerDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D704C8728648821001E6DB0 /* StarGazerDTO.swift */; };
+		7D704C8E2865B09B001E6DB0 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D704C8D2865B09B001E6DB0 /* AppView.swift */; };
+		7D704C912865CC59001E6DB0 /* AppView_ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D704C902865CC59001E6DB0 /* AppView_ViewModel.swift */; };
+		7D704C932865CD13001E6DB0 /* AppView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D704C922865CD13001E6DB0 /* AppView+Extension.swift */; };
+		7D704C962865CD95001E6DB0 /* TextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D704C952865CD95001E6DB0 /* TextFieldModifier.swift */; };
+		7D704C9C2865E2C5001E6DB0 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D704C9B2865E2C5001E6DB0 /* View+Extensions.swift */; };
+		7D704C9E2866079C001E6DB0 /* StarGazerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D704C9D2866079C001E6DB0 /* StarGazerRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +46,7 @@
 /* Begin PBXFileReference section */
 		7D704C5028632C13001E6DB0 /* Stargazers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stargazers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D704C5328632C13001E6DB0 /* StargazersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StargazersApp.swift; sourceTree = "<group>"; };
-		7D704C5528632C13001E6DB0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7D704C5528632C13001E6DB0 /* GazersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GazersListView.swift; sourceTree = "<group>"; };
 		7D704C5728632C16001E6DB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D704C5A28632C16001E6DB0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7D704C6028632C16001E6DB0 /* StargazersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StargazersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,8 +56,14 @@
 		7D704C7028632C16001E6DB0 /* StargazersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StargazersUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7D704C7E28632CBD001E6DB0 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		7D704C8328648675001E6DB0 /* Constants+Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Enums.swift"; sourceTree = "<group>"; };
-		7D704C85286486A8001E6DB0 /* ContentView_ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView_ViewModel.swift; sourceTree = "<group>"; };
-		7D704C8728648821001E6DB0 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		7D704C85286486A8001E6DB0 /* GazersListView_ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GazersListView_ViewModel.swift; sourceTree = "<group>"; };
+		7D704C8728648821001E6DB0 /* StarGazerDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarGazerDTO.swift; sourceTree = "<group>"; };
+		7D704C8D2865B09B001E6DB0 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		7D704C902865CC59001E6DB0 /* AppView_ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView_ViewModel.swift; sourceTree = "<group>"; };
+		7D704C922865CD13001E6DB0 /* AppView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppView+Extension.swift"; sourceTree = "<group>"; };
+		7D704C952865CD95001E6DB0 /* TextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModifier.swift; sourceTree = "<group>"; };
+		7D704C9B2865E2C5001E6DB0 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		7D704C9D2866079C001E6DB0 /* StarGazerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarGazerRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,11 +114,13 @@
 		7D704C5228632C13001E6DB0 /* Stargazers */ = {
 			isa = PBXGroup;
 			children = (
-				7D704C7D28632CA2001E6DB0 /* NetworkService */,
 				7D704C5328632C13001E6DB0 /* StargazersApp.swift */,
-				7D704C5528632C13001E6DB0 /* ContentView.swift */,
-				7D704C85286486A8001E6DB0 /* ContentView_ViewModel.swift */,
-				7D704C8728648821001E6DB0 /* Model.swift */,
+				7D704C9A2865E2AF001E6DB0 /* Extensions */,
+				7D704C942865CD78001E6DB0 /* Modifiers */,
+				7D704C7D28632CA2001E6DB0 /* NetworkService */,
+				7D704C8C2865B03A001E6DB0 /* Models */,
+				7D704C8F2865CC21001E6DB0 /* AppView */,
+				7D704C8B2865B01A001E6DB0 /* GazersList */,
 				7D704C5728632C16001E6DB0 /* Assets.xcassets */,
 				7D704C5928632C16001E6DB0 /* Preview Content */,
 			);
@@ -145,6 +159,50 @@
 				7D704C8328648675001E6DB0 /* Constants+Enums.swift */,
 			);
 			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		7D704C8B2865B01A001E6DB0 /* GazersList */ = {
+			isa = PBXGroup;
+			children = (
+				7D704C5528632C13001E6DB0 /* GazersListView.swift */,
+				7D704C85286486A8001E6DB0 /* GazersListView_ViewModel.swift */,
+				7D704C9D2866079C001E6DB0 /* StarGazerRow.swift */,
+			);
+			path = GazersList;
+			sourceTree = "<group>";
+		};
+		7D704C8C2865B03A001E6DB0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7D704C8728648821001E6DB0 /* StarGazerDTO.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7D704C8F2865CC21001E6DB0 /* AppView */ = {
+			isa = PBXGroup;
+			children = (
+				7D704C8D2865B09B001E6DB0 /* AppView.swift */,
+				7D704C922865CD13001E6DB0 /* AppView+Extension.swift */,
+				7D704C902865CC59001E6DB0 /* AppView_ViewModel.swift */,
+			);
+			path = AppView;
+			sourceTree = "<group>";
+		};
+		7D704C942865CD78001E6DB0 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				7D704C952865CD95001E6DB0 /* TextFieldModifier.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		7D704C9A2865E2AF001E6DB0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7D704C9B2865E2C5001E6DB0 /* View+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,11 +335,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D704C5628632C13001E6DB0 /* ContentView.swift in Sources */,
+				7D704C9E2866079C001E6DB0 /* StarGazerRow.swift in Sources */,
+				7D704C5628632C13001E6DB0 /* GazersListView.swift in Sources */,
+				7D704C912865CC59001E6DB0 /* AppView_ViewModel.swift in Sources */,
+				7D704C9C2865E2C5001E6DB0 /* View+Extensions.swift in Sources */,
+				7D704C932865CD13001E6DB0 /* AppView+Extension.swift in Sources */,
 				7D704C7F28632CBD001E6DB0 /* NetworkService.swift in Sources */,
-				7D704C86286486A8001E6DB0 /* ContentView_ViewModel.swift in Sources */,
-				7D704C8828648821001E6DB0 /* Model.swift in Sources */,
+				7D704C86286486A8001E6DB0 /* GazersListView_ViewModel.swift in Sources */,
+				7D704C8828648821001E6DB0 /* StarGazerDTO.swift in Sources */,
+				7D704C962865CD95001E6DB0 /* TextFieldModifier.swift in Sources */,
 				7D704C5428632C13001E6DB0 /* StargazersApp.swift in Sources */,
+				7D704C8E2865B09B001E6DB0 /* AppView.swift in Sources */,
 				7D704C8428648675001E6DB0 /* Constants+Enums.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
