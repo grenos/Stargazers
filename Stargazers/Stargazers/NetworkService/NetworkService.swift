@@ -50,16 +50,16 @@ class NetworkService: Fetchable {
 
 
 
-
-
-func createQuery(url: URL, params: [String : String]) -> NSURLComponents {
-	let components = NSURLComponents(string: url.absoluteString)!
-	if !params.isEmpty {
-		components.queryItems = params.map { (key, value) in
-			URLQueryItem(name: key, value: value)
+extension NetworkService {
+	func createQuery(url: URL, params: [String : String]) -> NSURLComponents {
+		let components = NSURLComponents(string: url.absoluteString)!
+		if !params.isEmpty {
+			components.queryItems = params.map { (key, value) in
+				URLQueryItem(name: key, value: value)
+			}
+			components.percentEncodedQuery = components.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
 		}
-		components.percentEncodedQuery = components.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
+		
+		return components
 	}
-	
-	return components
 }

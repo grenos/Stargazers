@@ -15,17 +15,24 @@ struct GazersListView: View {
 	var repo: String
 		
 	var body: some View {
-		List(viewModel.starGazers) { gazer in
-			StarGazerRow(gazer: gazer) { gazer in
-				Task {
-					await viewModel.loadMoreContentIfNeeded(currentItem: gazer, owner, repo)
+		VStack {
+			List(viewModel.starGazers) { gazer in
+				StarGazerRow(gazer: gazer) { gazer in
+					Task {
+						await viewModel.loadMoreContentIfNeeded(currentItem: gazer, owner, repo)
+					}
 				}
+				.testid(testId.stargazer.rawValue)
 			}
+			.testid(testId.stargazerList.rawValue)
 		}
+		.navigationTitle("StarGazers")
+		.testid(testId.stargazersView.rawValue)
 		.alert(viewModel.errorMessage, isPresented: $viewModel.isError) {
 			Button("OK 🙁", role: .cancel) {
 				dismiss()
 			}
+			.testid(testId.alertButton.rawValue)
 		}
 		.onAppear {
 			Task {

@@ -11,7 +11,6 @@ import Foundation
 
 extension GazersListView {
 	
-	@MainActor
 	class ViewModel: ObservableObject {
 		@Published var starGazers = [StarGazerDTO]()
 		@Published var isError = false
@@ -25,14 +24,17 @@ extension GazersListView {
 		}
 		
 		func getStargazers(_ owner: String, _ repo: String) async {
+			let trimmedData = trimWhiteSpace(data: [owner, repo])
+			
 			do {
 				let res = try await NetworkLayer.fetch(type: [StarGazerDTO].self,
-													 with: NetData.endpoint(repo: repo, owner: owner).returnValue,
+													 with: NetData.endpoint(repo: trimmedData[1],
+																			owner: trimmedData[0]).returnValue,
 													 params: ["page": String(currentPage)])
-				starGazers.append(contentsOf: res)
-				currentPage += 1
+				
+				await MainActor.run { starGazers.append(contentsOf: res); currentPage += 1 }
 			} catch {
-				handleError(error: (error as! NetErrors).returnValue)
+				await MainActor.run { handleError(error: (error as! NetErrors).returnValue) }
 			}
 		}
 		
@@ -51,6 +53,12 @@ extension GazersListView {
 		func handleError(error: String) {
 			errorMessage = error
 			isError = true
+		}
+		
+		
+		func trimWhiteSpace(data: [String]) -> [String] {
+			let trimmed = data.map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+			return trimmed
 		}
 	}
 }

@@ -17,7 +17,7 @@ struct StarGazerRow: View {
 					   content: { image in
 				image.resizable()
 					.aspectRatio(contentMode: .fit)
-					.frame(maxWidth: 80, maxHeight: 80)
+					.frame(maxWidth: 60, maxHeight: 60)
 					.cornerRadius(10)
 			},
 					   placeholder: {

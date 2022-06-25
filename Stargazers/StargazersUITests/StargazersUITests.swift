@@ -8,34 +8,85 @@
 import XCTest
 
 class StargazersUITests: XCTestCase {
+	
+	private var app: XCUIApplication!
+	private var uiElements: AppViewElements!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
+		app = XCUIApplication()
+		uiElements = AppViewElements(app: app)
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+		app.launch()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+		app = nil
+		uiElements = nil
     }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
+    func test_AppViewFlow() throws {
+		let button = uiElements.searchButton
+		let ownerTextField = uiElements.ownerTextField
+		let repoTextFiled = uiElements.repoTextFiled
+		let stargazersView = uiElements.stargazersView
+		
+		XCTAssertEqual(button.isEnabled, false)
+		
+		ownerTextField.tap()
+		ownerTextField.typeText("Vas")
+		
+		XCTAssertEqual(button.isEnabled, false)
+		
+		repoTextFiled.tap()
+		repoTextFiled.typeText("Stargazers")
+		
+		XCTAssertEqual(button.isEnabled, true)
+		
+		button.tap()
+		let viewIsPresented = stargazersView.waitForExistence(timeout: 5)
+		XCTAssertNotNil(viewIsPresented)
+	}
+	
+	
+	func test_stargazersList() throws {
+		let button = uiElements.searchButton
+		let ownerTextField = uiElements.ownerTextField
+		let repoTextFiled = uiElements.repoTextFiled
+		let stargazer = uiElements.stargazer
+		
+		ownerTextField.tap()
+		ownerTextField.typeText("mergesort")
+		repoTextFiled.tap()
+		repoTextFiled.typeText("boutique")
+		
+		button.tap()
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
-    }
+		let stargazerExists = stargazer.waitForExistence(timeout: 5)
+		XCTAssertNotNil(stargazerExists)
+	}
+	
+	
+	func test_stargazersListIsEmpty() throws {
+		let button = uiElements.searchButton
+		let ownerTextField = uiElements.ownerTextField
+		let repoTextFiled = uiElements.repoTextFiled
+		let alertButton = uiElements.alertButton
+		let appView = uiElements.appView
+		
+		ownerTextField.tap()
+		ownerTextField.typeText("wrong name")
+		repoTextFiled.tap()
+		repoTextFiled.typeText("wrong repo")
+		
+		button.tap()
+		
+		let stargazerExists = alertButton.waitForExistence(timeout: 5)
+		XCTAssertNotNil(stargazerExists)
+		
+		alertButton.tap()
+		
+		let appViewExists = appView.waitForExistence(timeout: 5)
+		XCTAssertNotNil(appViewExists)
+	}
 }
+

@@ -35,10 +35,12 @@ struct AppView: View {
 						.focused($focusField, equals: .owner)
 						.modifier(TextFieldModifier(borderColor: .black, background: .white))
 						.padding(.bottom, 10)
+						.testid(testId.owner.rawValue)
 					
 					TextField("Repo", text: $viewModel.repo)
 						.focused($focusField, equals: .repo)
 						.modifier(TextFieldModifier(borderColor: .black, background: .white))
+						.testid(testId.repo.rawValue)
 					
 					Spacer()
 					
@@ -53,6 +55,7 @@ struct AppView: View {
 							.cornerRadius(8)
 					}
 					.disabled(viewModel.buttonDisabled())
+					.testid(testId.searchButton.rawValue)
 				}
 				.padding(.vertical, 20)
 				
@@ -62,8 +65,9 @@ struct AppView: View {
 			}
 			.onTapGesture { hideKeyboard() }
 			.onAppear(perform: viewModel.resetState)
-			.navigationTitle("StarGazers ⭐️")
+			.navigationTitle("Search StarGazers ⭐️")
 		}
+		.testid(testId.appView.rawValue)
 	}
 }
 

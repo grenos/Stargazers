@@ -12,3 +12,10 @@ extension View {
 		UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
 	}
 }
+
+
+extension View {
+	func testid(_ id: String = "") -> some View {
+		self.modifier(TestIdModifier(id: id))
+	}
+}
